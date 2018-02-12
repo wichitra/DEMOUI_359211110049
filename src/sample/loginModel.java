@@ -11,16 +11,13 @@ public class loginModel {
     Connection connection;
 
 
-    public loginModel() {
-        try {
-            this.connection = dbConnection.getConnection();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+    public loginModel() throws SQLException {
+        this.connection = dbConnection.getConnection();
         if (this.connection == null) {
-            System.exit(l);
+            System.exit(1);
         }
     }
+
 
     public boolean isDatabaseConnection() {
         return this.connection != null;
